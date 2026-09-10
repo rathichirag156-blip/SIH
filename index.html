@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LandSetu | Land Acquisition Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<!-- ================= LOGIN ================= -->
+
+<div id="loginScreen" class="login-screen">
+
+    <div class="login-card">
+
+        <div class="brand-logo">LA</div>
+
+        <h1>LandSetu</h1>
+
+        <p>
+            Real-Time National Land Acquisition &
+            Management System
+        </p>
+
+        <label>Username</label>
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter username"
+            value="citizen"
+        >
+
+        <label>Password</label>
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter password"
+            value="1234"
+        >
+
+        <label>Select Role</label>
+
+        <select id="role">
+            <option value="citizen">Citizen</option>
+            <option value="officer">Land Officer</option>
+            <option value="admin">Administrator</option>
+        </select>
+
+        <button class="primary-btn full" onclick="login()">
+            Login
+        </button>
+
+        <small>
+            Demo: any username/password works
+        </small>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MAIN APPLICATION ================= -->
+
+<div id="app" class="app hidden">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+
+            <div class="brand-logo small">
+                LA
+            </div>
+
+            <div>
+                <strong>LandSetu</strong>
+                <span>Digital Land System</span>
+            </div>
+
+        </div>
+
+        <nav id="navigation"></nav>
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="nav-item"
+                onclick="showPage('settings')"
+            >
+                ⚙ Settings
+            </button>
+
+            <button
+                class="nav-item logout"
+                onclick="logout()"
+            >
+                ↪ Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <button
+                class="menu-btn"
+                onclick="toggleSidebar()"
+            >
+                ☰
+            </button>
+
+            <div>
+
+                <div class="eyebrow">
+                    REAL-TIME LAND ACQUISITION
+                </div>
+
+                <h2 id="pageTitle">
+                    Dashboard
+                </h2>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <button
+                    class="icon-btn"
+                    onclick="showNotifications()"
+                >
+                    🔔
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div
+                    class="profile"
+                    onclick="showPage('profile')"
+                >
+
+                    <div
+                        class="avatar"
+                        id="avatar"
+                    >
+                        C
+                    </div>
+
+                    <div>
+
+                        <strong id="profileName">
+                            Citizen
+                        </strong>
+
+                        <span id="profileRole">
+                            Citizen
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE CONTENT -->
+
+        <section
+            id="content"
+            class="content"
+        ></section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= MODAL ================= -->
+
+<div
+    id="modal"
+    class="modal hidden"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="modal-close"
+            onclick="closeModal()"
+        >
+            ×
+        </button>
+
+        <div id="modalContent"></div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
